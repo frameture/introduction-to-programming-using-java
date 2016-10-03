@@ -8,7 +8,7 @@
     
   <p>Highly recommended to anyone willing to understand all fundamental concepts of programming.</p>
    
-  <p>Eck also introduces its readers to several advanced topics like multithreading, generic programming and </p>
+  <p>Eck also introduces its readers to several advanced topics like multithreading and generic programming</p>
   
-  <p>couple more. All this with using one of the most popular OOP language in the world - Java.</p>
+  <p>All this with using one of the most popular OOP language in the world - Java.</p>
 </html>
