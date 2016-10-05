@@ -10,7 +10,7 @@ public class Exercise_3_7_3 {
 		// booleans of occurred dates;
 		boolean[] dates = new boolean[365];	
 		int peopleCounter = 0, 
-				birthdaypeopleCounter = 0;
+			birthdaypeopleCounter = 0;
 		
 		// looping until 365 different birthdays are found;
 		int date;
