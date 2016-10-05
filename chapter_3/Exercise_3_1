@@ -1,0 +1,27 @@
+/**
+ * 
+ * How many times do you have to roll a pair of dice before they come up snake eyes?
+ * You could do the experiment by rolling the dice by hand. Write a computer program 
+ * that simulates the experiment. The program should report the number of rolls that
+ * it makes before the dice come up snake eyes. (Note: "Snake eyes" means that both 
+ * dice show a value of 1.) Exercise 2.2 explained how to simulate rolling a pair of
+ * dice.
+ *
+ */
+public class Exercise_3_1 {
+	
+	public static void main(String[] args){
+		
+		int counter = 0;
+		int die1, die2;
+		
+		// do - while statement for getting 'snake eyes';
+		do {
+			die1 = (int) (6*Math.random()) + 1;
+			die2 = (int) (6*Math.random()) + 1;
+			counter++;
+		} while (die1 + die2 != 2);
+		
+		System.out.printf(" \n There were needed %s rolls to get 'Snake eyes'.", counter);
+	}
+}
