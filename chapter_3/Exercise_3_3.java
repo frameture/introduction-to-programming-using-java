@@ -11,14 +11,13 @@
  *
  */
 
-public class Exe_3_3 {
+public class Exercise_3_3 {
 
 	public static void main(String[] args) {
 		
 		System.out.printf("%n	Welcome to the calculator! %n");
-    
-		// infinite loop - enabling the calculator to work until the user wishes 
-    // to exit
+		
+		// infinite loop - the calculator works until the user wishes to exit;
 		while(true){
 			
 			System.out.printf("%n	Please type a simple expression.");
@@ -39,7 +38,7 @@ public class Exe_3_3 {
 			operator = TextIO.getChar();
 			operand2 = TextIO.getlnDouble();	
 			
-			result = 0;
+			// switch statement - determining the actual expression type;
 			switch(operator){
 			case '+':
 				result = operand1 + operand2;
