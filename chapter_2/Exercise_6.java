@@ -19,7 +19,7 @@
  *
  *
  */
-public class Exercise_2_6 {
+public class Exercise_6 {
 
 	public static void main(String[] args) {
 		String input, firstNam, lastNam;
