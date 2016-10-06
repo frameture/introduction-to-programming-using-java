@@ -11,7 +11,7 @@
  * possible totals (2, 3, ..., 12).
  *
  */
-public class Exe_4_4_RollingDiceToGetGivenTotalAndAverage {
+public class Exercise_4_4 {
 	private static final int NUMBER_OF_EXPERIMENTS = 10000;	// named constant;	
 	public static void main(String[] args) {
 		System.out.println("Total on dice		Average Number of Rolls");
