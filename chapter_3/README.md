@@ -1,5 +1,5 @@
 <html>
-  <h2>Folder contains solutions for exercises from Chapter No.3</h2>
+  <h2>Folder contains solutions for exercises from <a href="http://math.hws.edu/javanotes/c3/index.html">Chapter No.3<a/></h2>
   <h4>Chapter's main aspects:</h4> 
   <ul>
     <li>blocks, loops and branches,</li>
