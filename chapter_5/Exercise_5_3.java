@@ -33,7 +33,6 @@ public class Exe_5_3_Extended_Exe_4_4 {
 					stats[i].getStandardDeviation(), (int)(stats[i].getMaxEnter()));
 		}
 		System.out.println("-------------	 -----------------------   ------------------   --------- ");
-
 	}
 			/**
 			 * 
