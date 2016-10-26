@@ -1,4 +1,3 @@
-package Toolbox;
 /**
  * 
  * BlackJackHand object represents a Hand object adopted to a blackjack game.
