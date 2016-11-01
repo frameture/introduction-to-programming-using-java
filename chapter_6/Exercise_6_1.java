@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+
 /**
  * A simple demonstration of MouseEvents.  Shapes are drawn
  * on a black background when the user clicks the panel.  If
@@ -13,6 +14,7 @@ import javax.swing.*;
  */
 public class SimpleStamper extends JPanel implements MouseListener, MouseMotionListener {
 	private boolean drawingAllowed;
+	
     public static void main(String[] args) {
         JFrame window = new JFrame("Simple Stamper");
         SimpleStamper content = new SimpleStamper();
@@ -22,6 +24,7 @@ public class SimpleStamper extends JPanel implements MouseListener, MouseMotionL
         window.setSize(800, 600);
         window.setVisible(true);
     }
+	
     /**
      * This constructor simply sets the background color of the panel to be black
      * and sets the panel to listen for mouse events on itself.
@@ -34,6 +37,7 @@ public class SimpleStamper extends JPanel implements MouseListener, MouseMotionL
         addMouseMotionListener(this);
         setBorder(BorderFactory.createLineBorder(Color.BLACK, 5)); // adding border
     }
+	
     /**
      *  Since this panel has been set to listen for mouse events on itself, 
      *  this method will be called when the user clicks the mouse on the panel.
@@ -74,12 +78,14 @@ public class SimpleStamper extends JPanel implements MouseListener, MouseMotionL
 	        g.dispose();  // We are finished with the graphics context, so dispose of it.
     	}
     } // end mousePressed();
+	
     // The next four empty routines are required by the MouseListener interface.
     // They don't do anything in this class, so their definitions are empty.
     public void mouseEntered(MouseEvent evt) { }
     public void mouseExited(MouseEvent evt) { }
     public void mouseClicked(MouseEvent evt) { }
     public void mouseReleased(MouseEvent evt) { }
+	
 	@Override
 	public void mouseDragged(MouseEvent e) {     
 		if (drawingAllowed) {
@@ -119,6 +125,7 @@ public class SimpleStamper extends JPanel implements MouseListener, MouseMotionL
 		    g.dispose();  // We are finished with the graphics context, so dispose of it.
 		}	
 	}
+	
 	@Override
 	public void mouseMoved(MouseEvent e) { }
 } // end class SimpleStamper
