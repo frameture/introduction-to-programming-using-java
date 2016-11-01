@@ -16,3 +16,4 @@ public class Main extends JFrame {
 		panel.add(content, BorderLayout.CENTER);
 		setContentPane(panel);
 	}
+}
