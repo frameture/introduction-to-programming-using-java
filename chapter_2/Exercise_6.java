@@ -20,27 +20,25 @@
  *
  */
 public class Exercise_6 {
+  public static void main(String[] args) {
+    String input, firstNam, lastNam;
 
-	public static void main(String[] args) {
-		String input, firstNam, lastNam;
-		
-		System.out.println("Please enter your first name and last name,"
-				+ " separated by a space.");
-		input = TextIO.getln().trim();
-		
-		// finding a space in the input in order to separate substrings;
-		int index = input.indexOf(' ');
-		// separating first and last names;
-		firstNam = input.substring(0, index);
-		lastNam = input.substring(index + 1);
-		
-		// output
-		System.out.printf("Your first name is %s whiich has %d characters \n",
-				firstNam, firstNam.length());
-		System.out.printf("Your last name is %s whiich has %d characters \n",
-				lastNam, lastNam.length());
-		System.out.printf("Your initials are %s%s", firstNam.charAt(0),
-				lastNam.charAt(0));
-	}
-	
+    System.out.println("Please enter your first name and last name,"
+      + " separated by a space.");
+    input = TextIO.getln().trim();
+
+    // finding a space in the input in order to separate substrings;
+    int index = input.indexOf(' ');
+    // separating first and last names;
+    firstNam = input.substring(0, index);
+    lastNam = input.substring(index + 1);
+
+    // output
+    System.out.printf("Your first name is %s whiich has %d characters \n", 
+	    firstNam, firstNam.length());
+    System.out.printf("Your last name is %s whiich has %d characters \n", 
+	    lastNam, lastNam.length());
+    System.out.printf("Your initials are %s%s", firstNam.charAt(0),
+    lastNam.charAt(0));
+  }
 }

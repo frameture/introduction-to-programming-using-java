@@ -10,24 +10,22 @@
  *
  */
 public class Exercise_7 {
+  public static void main(String[] args) {		
+    // reading the file;
+    TextIO.readFile("C:/Users/lenovo/testdata.txt");
 
-	public static void main(String[] args) {		
-		// reading the file;
-		TextIO.readFile("C:/Users/lenovo/testdata.txt");
-		
-		String studentNam;
-		int exam1, exam2, exam3;
-		double mean;
-		
-		// reading and assigning values
-		studentNam = TextIO.getln();
-		exam1 = TextIO.getInt();
-		exam2 = TextIO.getInt();
-		exam3 = TextIO.getInt();
-		mean = (double)(exam1 + exam2 + exam3) / 3;
-		
-		// output 
-		System.out.printf("Student %s's average exam score is %1.1f", studentNam, mean);
-	}
+    String studentNam;
+    int exam1, exam2, exam3;
+    double mean;
 
+    // reading and assigning values
+    studentNam = TextIO.getln();
+    exam1 = TextIO.getInt();
+    exam2 = TextIO.getInt();
+    exam3 = TextIO.getInt();
+    mean = (double)(exam1 + exam2 + exam3) / 3;
+
+    // output 
+    System.out.printf("Student %s's average exam score is %1.1f", studentNam, mean);
+  }
 }

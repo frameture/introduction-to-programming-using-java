@@ -11,23 +11,21 @@
  * to 9*144 + 3*12 + 10.
  */
 public class Exercise_5 {
+  public static void main(String[] args) {
+    // variables holding egg values
+    int gross, dozen, left;
 
-	public static void main(String[] args) {
-		
-		// variables holding egg values
-		int gross, dozen, left;
-		
-		// asking for number of eggs
-		System.out.println("How many eggs do you have? Please type a number.");
-		int inputEgg = TextIO.getlnInt();
-		
-		gross = inputEgg / 144;
-		dozen = inputEgg % 144 / 12;
-		left = inputEgg % 144 % 12;
-		
-		// printing the result
-		System.out.printf("Your number of eggs is %d gross, %d dozens and %d "
-				+ "since %d is equal to %d * 144 + %d * 12 + %d", gross, dozen, 
-				left, inputEgg, gross, dozen, left);
-	}
+    // asking for number of eggs
+    System.out.println("How many eggs do you have? Please type a number.");
+    int inputEgg = TextIO.getlnInt();
+
+    gross = inputEgg / 144;
+    dozen = inputEgg % 144 / 12;
+    left = inputEgg % 144 % 12;
+
+    // printing the result
+    System.out.printf("Your number of eggs is %d gross, %d dozens and %d "
+	  + "since %d is equal to %d * 144 + %d * 12 + %d", gross, dozen, left, 
+	  inputEgg, gross, dozen, left);
+  }
 }
