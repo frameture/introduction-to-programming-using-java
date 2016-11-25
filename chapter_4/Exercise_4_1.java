@@ -11,39 +11,37 @@ import static java.lang.System.out; // static import;
  * input from the user and applies the subroutine to it.
  *
  */
-
 public class Exercise_4_1 {
+  public static void main(String[] args) {
+    printCapitalized("check how 4 it works but only with one 3 empty space"
+        + " between the words.");
+  }
+  
+  private static void printCapitalized(String s) {	
+    s = s.trim();	// cutting empty edges of the 's' formal parameter;
+    String word;	// processed word;
+    int indexBegin = 0,	// index of the first character in the current word;
+    indexEnd = 0;	// index of the last character in the current word;
 
-	public static void main(String[] args) {
-		printCapitalized("check how 4 it works but only with one 3 empty space"
-				+ " between the words.");
-	}
-	private static void printCapitalized(String s) {
-		
-		s = s.trim();	// cutting empty edges of the 's' formal parameter;
-		String word;	// processed word;
-		int indexBegin = 0,	// index of the first character in the current word;
-			indexEnd = 0;	// index of the last character in the current word;
-		
-		char ch,	// current character;
-			 ch2,	// character to capitalize;
-			 ch3;	// character already capitalized;
-		
-		for (int i = 0; i < s.length(); i++) {
-			ch = s.charAt(i);	
-			if (ch == ' '){
-				indexEnd = i;	
-				word = s.substring(indexBegin, indexEnd).trim();
-				ch2 = word.charAt(0);
-				ch3 = Character.toUpperCase(ch2);	
-				out.printf("%1s %n", ch3 + word.substring(1));
-				indexBegin = i;
-			}
-		} 
-		word = s.substring(indexBegin + 1).trim();
-		ch2 = word.charAt(0);
-		ch3 = Character.toUpperCase(ch2);
-		
-		out.printf("%1s %n", ch3 + word.substring(1));
-	}
+    char ch,	// current character;
+    ch2,	// character to capitalize;
+    ch3;	// character already capitalized;
+
+    for (int i = 0; i < s.length(); i++) {
+      ch = s.charAt(i);	
+      if (ch == ' ') {
+        indexEnd = i;	
+        word = s.substring(indexBegin, indexEnd).trim();
+        ch2 = word.charAt(0);
+        ch3 = Character.toUpperCase(ch2);	
+        out.printf("%1s %n", ch3 + word.substring(1));
+        indexBegin = i;
+      }
+    } 
+    word = s.substring(indexBegin + 1).trim();
+    ch2 = word.charAt(0);
+    ch3 = Character.toUpperCase(ch2);
+
+    out.printf("%1s %n", ch3 + word.substring(1));
+  }
 }

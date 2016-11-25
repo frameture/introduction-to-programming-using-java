@@ -5,7 +5,6 @@
  * same day in the same month, but not necessarily in the same year.)
  *
  */
-
 public class Exercise_3_7_1 {
   public static void main(String[] args) {
     int counter = 0;

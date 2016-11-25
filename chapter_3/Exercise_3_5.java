@@ -18,56 +18,52 @@
  */
 
 public class Exercise_3_5 {
+  public static void main(String[] args) {	
+    double accuProfit = 0; // accumulated profit from all the cities;
+    int cityCounter = 0; // number of cities included in the given file;
 
-	public static void main(String[] args) {
-		
-		double accuProfit = 0; // accumulated profit from all the cities;
-		int cityCounter = 0; // number of cities included in the given file;
-		
-		// reading the file;
-		try{
-			TextIO.readFile("profits.txt");
-		}catch(Exception e){
-			System.out.println("Cannot open the 'profits.txt' file.");
-		}
-		
-		// while there is data in the file - process it;
-		while(TextIO.eof() == false){
-			String input, // one line of string input from the file;
-				   inputProfit; // substring from the 'input' containing profit
-								// of the current city  
-			input = TextIO.getln();
+    // reading the file;
+    try {
+      TextIO.readFile("profits.txt");
+    } catch (Exception e) {
+      System.out.println("Cannot open the 'profits.txt' file.");
+    }
 
-			double profit = 0; // parsed profit for the current city;
-			int colonIndex = 0; // index of the colon char in the input ':';
-			int inputLength = input.length(); // length of the input string;
-			
-			for(int i = 0; i < inputLength; i++){
-				char ch = input.charAt(i);
-				if(ch == ':')
-					colonIndex = i;
-			}
-				inputProfit = input.substring(colonIndex + 1);
-				
-				// trying to parse double which represents a profit, if 'inputProfit'
-				// doesn't contain a double value then there is no profit assigned to 
-				// the current city;
-				try{
-					profit = Double.parseDouble(inputProfit);	
-				}
-				catch(IllegalArgumentException e){
-					System.out.printf("No data for particular City: %1s. %n",
-							input.substring(0,colonIndex));
-				}
-				if(profit > 0){
-					accuProfit += profit;
-					cityCounter++;
-				}
-		}
-		System.out.println("\n"
-				+ "Average profit out of "+ cityCounter +" cities equals"
-				+ " " + accuProfit / cityCounter);
+    // while there is data in the file - process it;
+    while (TextIO.eof() == false) {
+      String input, // one line of string input from the file;
+      inputProfit; // substring from the 'input' containing profit
+      // of the current city  
+      input = TextIO.getln();
 
-	}
+      double profit = 0; // parsed profit for the current city;
+      int colonIndex = 0; // index of the colon char in the input ':';
+      int inputLength = input.length(); // length of the input string;
 
+      for (int i = 0; i < inputLength; i++) {
+        char ch = input.charAt(i);
+        if (ch == ':')
+          colonIndex = i;
+      }
+      inputProfit = input.substring(colonIndex + 1);
+
+      // trying to parse double which represents a profit, if 'inputProfit'
+      // doesn't contain a double value then there is no profit assigned to 
+      // the current city;
+      try {
+        profit = Double.parseDouble(inputProfit);	
+      }
+      catch (IllegalArgumentException e) {
+        System.out.printf("No data for particular City: %1s. %n",
+        input.substring(0,colonIndex));
+      }
+      if (profit > 0) {
+        accuProfit += profit;
+        cityCounter++;
+      }
+    }
+    System.out.println("\n"
+        + "Average profit out of "+ cityCounter +" cities equals"+ " " 
+		+ accuProfit / cityCounter);
+  }
 }

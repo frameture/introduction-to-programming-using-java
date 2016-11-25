@@ -11,38 +11,38 @@
  *
  */
 public class Exercise_4_3 {
-	public static void main(String[] args) {
-		System.out.println("Please type a number which you want to obtain after "
-				+ "rolling two dice.");
-		int input = TextIO.getlnInt(),	// user's input;
-			rollCount = 0;				// rolling counter;
-		try {
-			rollCount = rollDice(input);
-		} catch(IllegalArgumentException e) {
-			System.out.println(e);
-			return;
-		}
-		System.out.println("There were needed "+rollCount+" tries to get "+input);
-	}
-		/**
-		 * 
-		 * @param valueToObtain
-		 * @return Returns the amount of times needed to get aggregate number of dice that equals
-		 * the given total that is input by a user.
-		 * @throws IllegalArgumentException when the value lower than 2 and higher than 12.
-		 */
-	private static int rollDice(int valueToObtain) {
-		if (valueToObtain < 2 || valueToObtain > 12)	// illegal argument;
-			throw new IllegalArgumentException("Impossible number to obtain (n > 1 && n < 13");
-		int counter = 0,	// return value;
-			die1, die2;		// dice in process;
-		while (true) {
-			die1 = (int)(6 * Math.random()) + 1;
-			die2 = (int)(6 * Math.random()) + 1;
-			counter++;
-			if (die1 + die2 == valueToObtain)
-				break;
-		}
-		return counter;
-	}
+  public static void main(String[] args) {
+    System.out.println("Please type a number which you want to obtain after "
+        + "rolling two dice.");
+    int input = TextIO.getlnInt(),	// user's input;
+    rollCount = 0;				// rolling counter;
+    try {
+      rollCount = rollDice(input);
+    } catch(IllegalArgumentException e) {
+      System.out.println(e);
+      return;
+    }
+    System.out.println("There were needed " + rollCount + "  tries to get " + input);
+  }
+/**
+* 
+* @param valueToObtain
+* @return Returns the amount of times needed to get aggregate number of dice that equals
+* the given total that is input by a user.
+* @throws IllegalArgumentException when the value lower than 2 and higher than 12.
+*/
+  private static int rollDice(int valueToObtain) {
+    if (valueToObtain < 2 || valueToObtain > 12)	// illegal argument;
+      throw new IllegalArgumentException("Impossible number to obtain (n > 1 && n < 13");
+    int counter = 0,	// return value;
+    die1, die2;		// dice in process;
+    while (true) {
+      die1 = (int)(6 * Math.random()) + 1;
+      die2 = (int)(6 * Math.random()) + 1;
+      counter++;
+      if (die1 + die2 == valueToObtain)
+        break;
+    }
+    return counter;
+  }
 }

@@ -9,19 +9,16 @@
  *
  */
 public class Exercise_3_1 {
-	
-	public static void main(String[] args){
-		
-		int counter = 0;
-		int die1, die2;
-		
-		// do - while statement for getting 'snake eyes';
-		do {
-			die1 = (int) (6*Math.random()) + 1;
-			die2 = (int) (6*Math.random()) + 1;
-			counter++;
-		} while (die1 + die2 != 2);
-		
-		System.out.printf(" \n There were needed %s rolls to get 'Snake eyes'.", counter);
-	}
+  public static void main(String[] args){
+    int counter = 0;
+    int die1, die2;
+
+    // do - while statement for getting 'snake eyes';
+    do {
+      die1 = (int) (6*Math.random()) + 1;
+      die2 = (int) (6*Math.random()) + 1;
+      counter++;
+    } while (die1 + die2 != 2);
+    System.out.printf(" \n There were needed %s rolls to get 'Snake eyes'.", counter);
+  }
 }

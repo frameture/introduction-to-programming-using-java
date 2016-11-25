@@ -17,44 +17,40 @@
  */
 
 public class Exercise_3_6 {
+  public static void main(String[] args) {	
+    // number of integers in search;
+    int nToDivide = 10000, 	
+    // maximal number of divisors; 
+    maxDivisors = 1;
+    // integer array holding values of divisors per each number of the nToDivide; 
+    int[] divisors = new int[nToDivide]; 
 
-public static void main(String[] args) {
-		
-		// number of integers in search;
-		int nToDivide = 10000, 	
-		    // maximal number of divisors; 
-			maxDivisors = 1;
-		// integer array holding values of divisors per each number of the nToDivide; 
-		int[] divisors = new int[nToDivide]; 
-		
-		// looping through nToDivide;
-		for (int i = 1; i <= nToDivide; i++) {
-			// current number of divisors;
-			int currDivisors = 0;
-			// looping with counting the number of divisors;
-			for (int i2 = 1; i2 <= nToDivide; i2++) {
-				if (i % i2 == 0)
-					currDivisors++;
-				else if (i / i2 < 1) {
-					divisors[i] = currDivisors;
-					break;
-				}
-				// saving the highest numbers;
-				if (currDivisors > maxDivisors) {
-					maxDivisors = currDivisors;
-				}
-			}
-		}
-		System.out.println("Among integers between 1 and 10000,");
-		System.out.println("The maximum number of divisors was " + maxDivisors);
-		System.out.println("Numbers with that many divisors include: \n");
-		
-		for (int i = 0; i < divisors.length; i++) {
-			if(divisors[i] == maxDivisors) {
-				System.out.println("   " + i );
-			}
-		}
-		
-	}
+    // looping through nToDivide;
+    for (int i = 1; i <= nToDivide; i++) {
+      // current number of divisors;
+      int currDivisors = 0;
+      // looping with counting the number of divisors;
+        for (int i2 = 1; i2 <= nToDivide; i2++) {
+          if (i % i2 == 0)
+            currDivisors++;
+          else if (i / i2 < 1) {
+            divisors[i] = currDivisors;
+            break;
+          }
+          // saving the highest numbers;
+          if (currDivisors > maxDivisors) {
+            maxDivisors = currDivisors;
+          }
+        }
+    }
+    System.out.println("Among integers between 1 and 10000,");
+    System.out.println("The maximum number of divisors was " + maxDivisors);
+    System.out.println("Numbers with that many divisors include: \n");
 
+    for (int i = 0; i < divisors.length; i++) {
+      if(divisors[i] == maxDivisors) {
+        System.out.println("   " + i );
+      }
+    }
+  }
 }

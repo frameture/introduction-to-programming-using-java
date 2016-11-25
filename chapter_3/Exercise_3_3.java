@@ -12,52 +12,46 @@
  */
 
 public class Exercise_3_3 {
+  public static void main(String[] args) {	
+    System.out.printf("%n	Welcome to the calculator! %n");
 
-	public static void main(String[] args) {
-		
-		System.out.printf("%n	Welcome to the calculator! %n");
-		
-		// infinite loop - the calculator works until the user wishes to exit;
-		while(true){
-			
-			System.out.printf("%n	Please type a simple expression.");
-			System.out.printf("%n 	To close the calculator type 0.");
-			
-			double operand1, operand2;
-			char operator;
-			double result;
-			
-			operand1 = TextIO.getDouble();
-			
-			// exit the calculator;
-			if (operand1 == 0 ){
-				System.out.println("\n	Calculator Closed");
-				break;
-			}
-			
-			operator = TextIO.getChar();
-			operand2 = TextIO.getlnDouble();	
-			
-			// switch statement - determining the actual expression type;
-			switch(operator){
-			case '+':
-				result = operand1 + operand2;
-				System.out.printf("%n	"+operand1+" "+operator+" "+operand2+" = "+result + "%n");
-				break;
-			case '-':
-				result = operand1 - operand2;
-				System.out.printf("%n	"+operand1+" "+operator+" "+operand2+" = "+result + "%n");
-				break;
-			case '/':
-				result = operand1 / operand2;
-				System.out.printf("%n	"+operand1+" "+operator+" "+operand2+" = "+result + "%n");
-				break;
-			case '*':
-				result = operand1 * operand2;
-				System.out.printf("%n	"+operand1+" "+operator+" "+operand2+" = "+result + "%n");
-				break;		
-			}
-		}
-	}
-	
+    // infinite loop - the calculator works until the user wishes to exit;
+    while(true) {
+      System.out.printf("%n	Please type a simple expression.");
+      System.out.printf("%n 	To close the calculator type 0.");
+
+      double operand1, operand2;
+      char operator;
+      double result;
+
+      operand1 = TextIO.getDouble();
+      // exit the calculator;
+      if (operand1 == 0 ) {
+        System.out.println("\n	Calculator Closed");
+          break;
+      }
+      operator = TextIO.getChar();
+      operand2 = TextIO.getlnDouble();	
+
+      // switch statement - determining the actual expression type;
+      switch (operator) {
+        case '+':
+          result = operand1 + operand2;
+          System.out.printf("%n	"+operand1+" "+operator+" "+operand2+" = "+result + "%n");
+          break;
+        case '-':
+          result = operand1 - operand2;
+          System.out.printf("%n	"+operand1+" "+operator+" "+operand2+" = "+result + "%n");
+          break;
+        case '/':
+          result = operand1 / operand2;
+          System.out.printf("%n	"+operand1+" "+operator+" "+operand2+" = "+result + "%n");
+          break;
+        case '*':
+          result = operand1 * operand2;
+          System.out.printf("%n	"+operand1+" "+operator+" "+operand2+" = "+result + "%n");
+          break;		
+      }
+    }
+  }
 }

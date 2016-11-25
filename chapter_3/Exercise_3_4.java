@@ -7,42 +7,37 @@
  */
 
 public class Exercise_3_4 {
+  public static void main(String[] args) {
+    System.out.println("Please type in a sequence of words.");
 
-	public static void main(String[] args) {
-		
-		System.out.println("Please type in a sequence of words.");
-		
-		String input; // user's input;
-		int inputLength; // length of the input string;
-		boolean isWord = true; // flag variable for checking if current word
-							   // is eligible for output;
-			
-		input = TextIO.getln();
-		inputLength = input.length();
-		
-		char ch;
-		String word = "";
-		for(int i = 0; i < inputLength; i++) {
-			
-			ch = input.charAt(i);
-			// concatenating the current word;
-			word += ch;
-			
-			// searching for the end of word;
-			if(ch == ' ' || i == inputLength - 1) {
-				if(isWord)
-					System.out.println(word);
-				else
-					isWord = true;
-				word = "";
-			}
-			
-			// checking if current word contains only letters;
-			if(! Character.isLetter(ch) && ch != ' ') {
-				isWord = false;
-			}
-		
-		}
-	}
-		
+    String input;          // user's input;
+    int inputLength;       // length of the input string;
+    boolean isWord = true; // flag variable for checking if current word is 
+	                       // eligible for output;
+
+    input = TextIO.getln();
+    inputLength = input.length();
+
+    char ch;
+    String word = "";
+    for (int i = 0; i < inputLength; i++) {
+      ch = input.charAt(i);
+      // concatenating the current word;
+      word += ch;
+
+      // searching for the end of word;
+      if (ch == ' ' || i == inputLength - 1) {
+        if (isWord)
+          System.out.println(word);
+        else
+          isWord = true;
+      word = "";
+      }
+
+      // checking if current word contains only letters;
+      if (! Character.isLetter(ch) && ch != ' ') {
+        isWord = false;
+      }
+    }
+  }	
 }
