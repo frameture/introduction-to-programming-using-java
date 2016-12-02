@@ -1,7 +1,7 @@
 import javax.swing.JFrame;
 
 public class Main extends JFrame {
-  private final int WIDTH = 800;	// window width
+  private final int WIDTH = 800;  // window width
   private final int HEIGHT = 800; // window height
 
   public Main(){
