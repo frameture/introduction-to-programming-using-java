@@ -1,3 +1,7 @@
+<strong> I am not satisfied with my initial version of this program, which was 
+         written around half a year ago. I have to rewrite it in order to upload.
+</strong>
+
 Write a GUI Blackjack program that lets the user play a game of Blackjack, with 
 the computer as the dealer. The program should draw the user's cards and the 
 dealer's cards, just as was done for the graphical HighLow card game in 
@@ -28,3 +32,6 @@ Subsection 6.6.6.You can find a description of the game of Blackjack in Exercise
  amount before the game starts. So, in the constructor for the drawing surface 
  class, you should not call doNewGame(). You might want to display a message such 
  as "Welcome to Blackjack" before the first game starts.
+ 
+ 
+ 
