@@ -12,12 +12,12 @@ import javax.swing.*;
  * if the panel is resized.
  * This class has a main() routine to allow it to be run as an application.
  */
-public class SimpleStamper extends JPanel implements MouseListener, MouseMotionListener {
+public class Exercise_6_1 extends JPanel implements MouseListener, MouseMotionListener {
   private boolean drawingAllowed;
 
   public static void main(String[] args) {
     JFrame window = new JFrame("Simple Stamper");
-    SimpleStamper content = new SimpleStamper();
+    Exercise_6_1 content = new Exercise_6_1();
     window.setContentPane(content); // setting panel's content
     window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     window.setLocation(0, 0);
@@ -29,7 +29,7 @@ public class SimpleStamper extends JPanel implements MouseListener, MouseMotionL
 * This constructor simply sets the background color of the panel to be black
 * and sets the panel to listen for mouse events on itself.
 */
-  public SimpleStamper() {
+  public Exercise_6_1() {
     drawingAllowed = true;
     setBackground(Color.GRAY);
     // register this object as listeners to MouseEvents
@@ -128,4 +128,4 @@ public class SimpleStamper extends JPanel implements MouseListener, MouseMotionL
 
   @Override
   public void mouseMoved(MouseEvent e) { }
-} // end class SimpleStamper
+} 
