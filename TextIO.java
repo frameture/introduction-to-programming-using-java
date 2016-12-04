@@ -6,6 +6,8 @@ import java.util.regex.Pattern;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
+// NOTE: this is custom Input/Output Class written by the professor Eck.
+
 /**
  * TextIO provides a set of static methods for reading and writing text.  By default, it reads
  * from standard input and writes to standard output, but it is possible to redirect the input
