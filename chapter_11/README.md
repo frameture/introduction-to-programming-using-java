@@ -3,8 +3,9 @@
   <h4>Chapter's main aspects:</h4> 
   <ul>
     <li>Input/Output Streams</li>
-	<li>Readers, Writers</li>
+    <li>Readers, Writers</li>
     <li>Files</li>
-	<li>XML</li>
+    <li>Networking</li>
+    <li>XML</li>
   </ul>
 </html>
