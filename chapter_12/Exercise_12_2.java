@@ -14,82 +14,47 @@ import java.util.concurrent.LinkedBlockingQueue;
  * into parts and create one thread to do each part.
  */
 public class Exercise_12_2 {
-  private static TaskThread[] workers;
-  private static ConcurrentLinkedQueue<Task> queue;
-  private static LinkedBlockingQueue<Result> results;
-  private static final int N = 100009;
+  private static final int N = 100000;
   private static final int TASK_SIZE = 1000;
   private static final int TASKS = N / TASK_SIZE;
-
-  public static void main(String[] args) {
+  private static Task[] workers = new Task[TASKS];
+  
+  public static void main(String[] args) {  
     long start = System.currentTimeMillis();
     
-    queue = new ConcurrentLinkedQueue<Task>();
-    results = new LinkedBlockingQueue<Result>();
-  
-    divideTasks();
-    createThreads();
-    checkResults();
+    doTasks();
+    checkResult();
     
-    System.out.printf("It took %s  milliseconds to do the whole task.", 
+    System.out.printf("It took %s  milliseconds to do the whole task.",
         System.currentTimeMillis() - start);
-        
   }
-  
-  private static void divideTasks() {
-    for (int i = 0; i < TASKS;  i++)
-      queue.add(new Task((i * TASK_SIZE) + 1, (i + 1) * TASK_SIZE));
+
+  private static void doTasks() {
+    for (int i = 0; i < workers.length; i++)
+      workers[i] = new Task(i * TASK_SIZE + 1, (i + 1) * TASK_SIZE);
   }
-  
-  static void createThreads() {
-    workers = new TaskThread[Runtime.getRuntime().availableProcessors() * 2];
-      
-    for (int i = 0; i < workers.length; i++) {
-      workers[i] = new TaskThread();
-      workers[i].start();
-    }
-  }
-  
-  private static void checkResults() {
+
+  static void checkResult() {
     int maxInt = 0;
-    int maxIntDivisors = 0;
+    int maxIntDivisors= 0;
     
-    for (int i = 0; i < TASKS; i++)
-      try {
-        Result result = results.take();
-        if (maxIntDivisors < result.maxIntDivisors) {
-          maxInt = result.maxInt;
-          maxIntDivisors = result.maxIntDivisors;
-        }
-      } catch (InterruptedException e) {}
-    System.out.printf("Integer with max divisors is %s and has %s divisors. \n", 
+    for (int i = 0; i < workers.length; i++) {
+      if (workers[i].isAlive())
+        try {
+          workers[i].join();
+        } catch (Exception e) {}  
+      if (workers[i].maxIntDivisors > maxIntDivisors) {
+        maxInt = workers[i].maxInt;
+        maxIntDivisors = workers[i].maxIntDivisors;        
+      }
+    }
+    System.out.printf("Integer with max divisors is %s and has %s divisors. \n",
         maxInt, maxIntDivisors);
   }
   
-  /* -------------- Nested Classes ---------------- */
+  /* ----------- Nested Class ------------- */
   
-  private static class TaskThread extends Thread {  
-    public void run() {
-      Task task = queue.poll();
-      while (task != null) {
-        task.compute();
-        results.add(new Result(task.maxInt, task.maxIntDivisors));
-        task = queue.poll();
-      }
-    }  
-  }
-  
-  private static class Result {  
-    int maxInt;
-    int maxIntDivisors;
-    
-    public Result(int maxInt, int maxIntDivisors) {  
-      this.maxInt = maxInt;
-      this.maxIntDivisors = maxIntDivisors;
-    }
-  }
-  
-  private static class Task {   
+  private static class Task extends Thread {
     private int from;
     private int to;
     int maxInt;
@@ -98,9 +63,10 @@ public class Exercise_12_2 {
     public Task(int from, int to) {
       this.from = from;
       this.to = to;
+      start();
     }
     
-    private void compute() {
+    public void run() {
       int currDivisors;
       for (int i = from; i <= to; i++) {
         currDivisors = 0;
@@ -116,4 +82,6 @@ public class Exercise_12_2 {
     }
   }
 }
+
+
 
