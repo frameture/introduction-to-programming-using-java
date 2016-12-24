@@ -12,6 +12,7 @@ public class IOWorker extends Thread {
   private BufferedReader in;
   private PrintWriter out;
   private LinkedList<Character> queueOfChars = new LinkedList<>();
+  private static enum Commands {INDEX, GET};
 
   public IOWorker(Socket connection) {
     this.connection = connection;
@@ -31,7 +32,7 @@ public class IOWorker extends Thread {
     char[] buffer = new char[1000];
     try {
       while (true) {
-        System.out.println("Blocked on - in.read()");
+        System.out.println("\nBlocked on - in.read()");
         int chars = in.read(buffer);
     
         /* -- easier version -- */
@@ -66,9 +67,10 @@ public class IOWorker extends Thread {
 
   /**
    * Puts all characters read from the buffer to the queue of characters.
+   * There are two newline characters -- add only one to the queue.
    */
   private void addCharsToQueue(char[] buffer, int chars) {
-    for (int i = 0; i < chars; i++)
+    for (int i = 0; i < chars - 1; i++)
       queueOfChars.addLast(new Character(buffer[i]));
   }
 
@@ -76,16 +78,16 @@ public class IOWorker extends Thread {
    * Determines what command action should be performed.
    */
   private void processInputLine(String command) throws IOException{
-      if (command.equalsIgnoreCase("index")) {
+      if (command.equals(Commands.INDEX.toString())) {
         sendIndex(Main.directory);
-      } else if (command.toLowerCase().startsWith("get")) {
+      } else if (command.startsWith(Commands.GET.toString())) {
         String fileName = command.substring(3).trim();
         sendFile(fileName, Main.directory);
       } else {
         out.println("ERROR. Unsupported command '" + command + "'");
         out.flush();
       }
-      System.out.println("Command :" + command + "processed from client " 
+      System.out.println("Command : '" + command + "' processed from client " 
             + connection.getInetAddress());
   }
 
@@ -97,7 +99,7 @@ public class IOWorker extends Thread {
     StringBuilder builder = new StringBuilder();
     while (!queueOfChars.isEmpty()) {
       char ch = queueOfChars.removeFirst();
-      if (ch == '\n')
+      if (ch == '\n' || ch == '\r')
         break;
       else
         builder.append(ch);
@@ -109,6 +111,7 @@ public class IOWorker extends Thread {
    * "INDEX" command. Send the list of files that are contained within the directory.
    */
   private void sendIndex(File directory) throws IOException {
+    System.out.println("sendIndex(), dir = " + directory);
     String[] fileList = directory.list();
     for (int i = 0; i < fileList.length; i++)
       out.println(fileList[i]);
@@ -122,6 +125,7 @@ public class IOWorker extends Thread {
    * Otherwise, send the contents of the file.
    */
   private void sendFile(String fileName, File directory) throws IOException {
+    System.out.println("sendFile(), file = " + directory + fileName);
     File file = new File(directory, fileName);
     if (!file.exists())
       out.println("ERROR. File '" + fileName + "' does not exist.");
