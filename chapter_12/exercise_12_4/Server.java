@@ -1,6 +1,6 @@
-import java.util.concurrent.ArrayBlockingQueue;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.concurrent.ArrayBlockingQueue;
 
 public class Server extends Thread {
   private final int PORT;
@@ -20,6 +20,7 @@ public class Server extends Thread {
       while (true) {
         Socket connection = server.accept();
         clients.put(connection);
+        System.out.println("Client connected");
       }
     } catch (Exception e) {
       System.out.println("Server shut down unexpectedly.");
