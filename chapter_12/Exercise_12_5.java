@@ -53,7 +53,7 @@ import javax.swing.JPanel;
  * the computation thread is paused.
  * 
  */
-public class Exe5_CheckPi extends JFrame {
+public class Exercise_12_5 extends JFrame {
   private static boolean running = false;
   private static ArrayBlockingQueue<Task> tasks;
   private static LinkedBlockingQueue<Result> results;  
@@ -68,7 +68,7 @@ public class Exe5_CheckPi extends JFrame {
     tasks = new ArrayBlockingQueue<Task>(100);
     workers = new Worker[Runtime.getRuntime().availableProcessors()];
     
-    JFrame window = new Exe5_CheckPi();
+    JFrame window = new Exercise_12_5();
     window.setVisible(true);
     
     Thread producer = createTaskDividingThread();
@@ -79,7 +79,7 @@ public class Exe5_CheckPi extends JFrame {
     calcEstimatePI();
   }
   
-  public Exe5_CheckPi() {
+  public Exercise_12_5() {
     super("Estimating value of Pi");
     Content content = new Content();
     setContentPane(content);
